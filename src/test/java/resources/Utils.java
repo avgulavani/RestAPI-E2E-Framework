@@ -25,7 +25,12 @@ public class Utils {
 		if(req==null)
 		{
 		PrintStream log =new PrintStream(new FileOutputStream("logging.txt"));
-		 req=new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addQueryParam("key", "qaclick123")
+		
+		
+		 RequestSpecification request = RestAssured.given().baseUri(getGlobalValue("baseUrl")).queryParam("appid", "7fe67bf08c80ded756e598d6f8fedaea");
+		
+		 
+		 req=new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl")).addQueryParam("appid", "7fe67bf08c80ded756e598d6f8fedaea")
 				 .addFilter(RequestLoggingFilter.logRequestTo(log))
 				 .addFilter(ResponseLoggingFilter.logResponseTo(log))
 		.setContentType(ContentType.JSON).build();

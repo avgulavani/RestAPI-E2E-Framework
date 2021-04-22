@@ -36,7 +36,6 @@ public class StepDefination extends Utils {
 public void add_Place_Payload_with(String name, String language, String address) throws IOException {
 	    // Write code here that turns the phrase above into concrete actions
 	
-		 
 		 res=given().spec(requestSpecification())
 		.body(data.addPlacePayLoad(name,language,address));
 	}
@@ -44,10 +43,10 @@ public void add_Place_Payload_with(String name, String language, String address)
 @When("user calls {string} with {string} http request")
 public void user_calls_with_http_request(String resource, String method) {
 	    // Write code here that turns the phrase above into concrete actions
-//constructor will be called with value of resource which you pass
+		//constructor will be called with value of resource which you pass
 		APIResources resourceAPI=APIResources.valueOf(resource);
 		System.out.println(resourceAPI.getResource());
-		
+	
 		
 		resspec =new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 		
